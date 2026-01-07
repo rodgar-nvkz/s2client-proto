@@ -1,5 +1,4 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
@@ -90,6 +89,7 @@ message ActionUI {
 
 message ActionControlGroup {
   enum ControlGroupAction {
+    CONTROL_GROUP_ACTION_UNSPECIFIED = 0;
     Recall = 1;             // Equivalent to number hotkey. Replaces current selection with control group.
     Set = 2;                // Equivalent to Control + number hotkey. Sets control group to current selection.
     Append = 3;             // Equivalent to Shift + number hotkey. Adds current selection into control group.
@@ -113,6 +113,7 @@ message ActionSelectLarva {
 
 message ActionSelectIdleWorker {
   enum Type {
+    TYPE_UNSPECIFIED = 0;
     Set = 1;        // Equivalent to click with no modifiers. Replaces selection with single idle worker.
     Add = 2;        // Equivalent to shift+click. Adds single idle worker to current selection.
     All = 3;        // Equivalent to control+click. Selects all idle workers.
@@ -123,6 +124,7 @@ message ActionSelectIdleWorker {
 
 message ActionMultiPanel {
   enum Type {
+    TYPE_UNSPECIFIED = 0;
     SingleSelect = 1;         // Click on icon
     DeselectUnit = 2;         // Shift Click on icon
     SelectAllOfType = 3;      // Control Click on icon.

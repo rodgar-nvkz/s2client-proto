@@ -1,5 +1,4 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
@@ -67,6 +66,7 @@ message DebugSphere {
 }
 
 enum DebugGameState {
+  DEBUG_GAME_STATE_UNSPECIFIED = 0;
   show_map = 1;
   control_enemy = 2;
   food = 3;
@@ -94,6 +94,7 @@ message DebugKillUnit {
 
 message DebugTestProcess {
   enum Test {
+    TEST_UNSPECIFIED = 0;
     hang = 1;
     crash = 2;
     exit = 3;
@@ -108,6 +109,7 @@ message DebugSetScore {
 
 message DebugEndGame {
   enum EndResult {
+    END_RESULT_UNSPECIFIED = 0;
     Surrender = 1;                  // Default if nothing is set. The current player admits defeat.
     DeclareVictory = 2;
   }
@@ -116,6 +118,7 @@ message DebugEndGame {
 
 message DebugSetUnitValue {
   enum UnitValue {
+    UNIT_VALUE_UNSPECIFIED = 0;
     Energy = 1;
     Life = 2;
     Shields = 3;
@@ -124,4 +127,3 @@ message DebugSetUnitValue {
   optional float value = 2;
   optional uint64 unit_tag = 3;
 }
-

@@ -1,5 +1,4 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
@@ -155,6 +154,7 @@ message Response {
 }
 
 enum Status {
+  STATUS_UNSPECIFIED = 0;
   launched = 1;                                 // Game has been launch and is not yet doing anything.
   init_game = 2;                                // Create game has been called, and the host is awaiting players.
   in_game = 3;                                  // In a single or multiplayer game.
@@ -191,6 +191,7 @@ message LocalMap {
 
 message ResponseCreateGame {
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     MissingMap = 1;
     InvalidMapPath = 2;
     InvalidMapData = 3;
@@ -231,6 +232,7 @@ message ResponseJoinGame {
   optional uint32 player_id = 1;
 
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     MissingParticipation = 1;
     InvalidObservedPlayerId = 2;
     MissingOptions = 3;
@@ -258,6 +260,7 @@ message RequestRestartGame {
 // The defaultRestartGameLoops is specified to be (1<<18) by default
 message ResponseRestartGame {
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     LaunchError = 1;
   }
   optional Error error = 1;
@@ -282,6 +285,7 @@ message RequestStartReplay {
 
 message ResponseStartReplay {
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     MissingReplay = 1;
     InvalidReplayPath = 2;
     InvalidReplayData = 3;
@@ -301,6 +305,7 @@ message RequestMapCommand {
 
 message ResponseMapCommand {
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     NoTriggerError = 1;
   }
   optional Error error = 1;
@@ -453,6 +458,7 @@ message ResponseReplayInfo {
   optional uint32 base_build = 8;
 
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     MissingReplay = 1;
     InvalidReplayPath = 2;
     InvalidReplayData = 3;
@@ -484,6 +490,7 @@ message RequestSaveMap {
 
 message ResponseSaveMap {
   enum Error {
+    ERROR_UNSPECIFIED = 0;
     InvalidMapData = 1;
   }
   optional Error error = 1;
@@ -514,6 +521,7 @@ message ResponseDebug {
 //
 
 enum Difficulty {
+  DIFFICULTY_UNSPECIFIED = 0;
   VeryEasy = 1;
   Easy = 2;
   Medium = 3;
@@ -527,12 +535,14 @@ enum Difficulty {
 }
 
 enum PlayerType {
+  PLAYER_TYPE_UNSPECIFIED = 0;
   Participant = 1;
   Computer = 2;
   Observer = 3;
 }
 
 enum AIBuild {
+  AI_BUILD_UNSPECIFIED = 0;
   RandomBuild = 1;
   Rush = 2;
   Timing = 3;
@@ -638,6 +648,7 @@ message Action {
 
 message ActionChat {
   enum Channel {
+    CHANNEL_UNSPECIFIED = 0;
     Broadcast = 1;
     Team = 2;
   }
@@ -681,6 +692,7 @@ message ActionObserverCameraFollowUnits {
 }
 
 enum Alert {
+  ALERT_UNSPECIFIED = 0;
   AlertError = 3;
   AddOnComplete = 4;
   BuildingComplete = 5;
@@ -706,6 +718,7 @@ enum Alert {
 }
 
 enum Result {
+  RESULT_UNSPECIFIED = 0;
   Victory = 1;
   Defeat = 2;
   Tie = 3;

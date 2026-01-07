@@ -1,9 +1,9 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
 enum ActionResult {
+  ACTION_RESULT_UNSPECIFIED = 0;
   Success = 1;
   NotSupported = 2;
   Error = 3;

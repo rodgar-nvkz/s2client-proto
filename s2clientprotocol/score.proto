@@ -1,10 +1,10 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
 message Score {
   enum ScoreType {
+    SCORE_TYPE_UNSPECIFIED = 0;
     Curriculum = 1;                // map generated score (from curriculum maps with special scoring)
     Melee = 2;                     // summation of in-progress and current units/buildings value + minerals + vespene
   }

@@ -1,5 +1,4 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
@@ -55,5 +54,3 @@ enum Race {
   Protoss = 3;
   Random = 4;
 }
-
-

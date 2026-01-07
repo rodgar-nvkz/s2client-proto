@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel", "protobuf>=6.33,<7.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "s2clientprotocol"
+dynamic = ["version"]
+description = "StarCraft II - client protocol (protobuf 6.33+ compatible fork)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Blizzard Entertainment", email = "jrepp@blizzard.com"},
+]
+keywords = ["starcraft", "sc2", "protocol", "protobuf", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Games/Entertainment :: Real Time Strategy",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Code Generators",
+]
+dependencies = [
+    "protobuf>=6.33,<7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Blizzard/s2client-proto"
+Repository = "https://github.com/Blizzard/s2client-proto"
+Documentation = "https://github.com/Blizzard/s2client-proto#readme"
+Issues = "https://github.com/Blizzard/s2client-proto/issues"
+
+[tool.setuptools]
+packages = ["s2clientprotocol"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "s2clientprotocol.build.game_version"}
+
+[tool.setuptools.package-data]
+s2clientprotocol = ["*.proto"]

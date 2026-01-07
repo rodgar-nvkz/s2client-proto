@@ -1,3 +1,6 @@
+# Fork
+Official StarCraft II API protocol fork, modernized for **Protocol Buffers 6.33+** and **Python 3.12+**.
+
 # Overview
 
 The StarCraft II API is an interface that provides full external control of StarCraft II.

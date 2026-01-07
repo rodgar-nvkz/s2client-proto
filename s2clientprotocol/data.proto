@@ -1,5 +1,4 @@
-
-syntax = "proto2";
+syntax = "proto3";
 
 package SC2APIProtocol;
 
@@ -19,6 +18,7 @@ message AbilityData {
   optional uint32 remaps_to_ability_id = 7;                       // This ability id may be represented by the given more generic id.
 
   enum Target {
+    TARGET_UNSPECIFIED = 0;
     None = 1;                                                     // Does not require a target.
     Point = 2;                                                    // Requires a target position.
     Unit = 3;                                                     // Requires a unit to target. Given by position using feature layers.
@@ -37,6 +37,7 @@ message AbilityData {
 }
 
 enum Attribute {
+  ATTRIBUTE_UNSPECIFIED = 0;
   Light = 1;
   Armored = 2;
   Biological = 3;
@@ -57,6 +58,7 @@ message DamageBonus {
 
 message Weapon {
   enum TargetType {
+    TARGET_TYPE_UNSPECIFIED = 0;
     Ground = 1;
     Air = 2;
     Any = 3;
