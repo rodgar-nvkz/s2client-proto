@@ -50,9 +50,7 @@ def compile_proto(source, python_out, proto_path):
     # Verify protoc version for compatibility warning
     try:
         version_output = subprocess.check_output(
-            [protoc, "--version"],
-            stderr=subprocess.STDOUT,
-            text=True
+            [protoc, "--version"], stderr=subprocess.STDOUT, text=True
         )
         print(f"Using {version_output.strip()}")
     except subprocess.CalledProcessError:
@@ -62,18 +60,14 @@ def compile_proto(source, python_out, proto_path):
         protoc,
         f"--proto_path={proto_path}",
         f"--python_out={python_out}",
+        f"--pyi_out={python_out}",
         str(source),
     ]
 
     print(f"Compiling {source.relative_to(SETUP_DIR)}...")
 
     try:
-        subprocess.run(
-            protoc_command,
-            check=True,
-            capture_output=True,
-            text=True
-        )
+        subprocess.run(protoc_command, check=True, capture_output=True, text=True)
     except subprocess.CalledProcessError as e:
         sys.exit(
             f"\nERROR: Failed to compile {source}\n"
@@ -89,9 +83,9 @@ class BuildPy(build_py):
 
     def run(self):
         """Build Python modules and compile protobuf files."""
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print("Compiling Protocol Buffer files...")
-        print("="*70 + "\n")
+        print("=" * 70 + "\n")
 
         proto_files = get_proto_files(PROTO_DIR)
 
@@ -99,11 +93,7 @@ class BuildPy(build_py):
             print("WARNING: No .proto files found!")
 
         for proto_file in proto_files:
-            compile_proto(
-                source=proto_file,
-                python_out=SETUP_DIR,
-                proto_path=SETUP_DIR
-            )
+            compile_proto(source=proto_file, python_out=SETUP_DIR, proto_path=SETUP_DIR)
 
         # Ensure __init__.py exists in the package
         init_file = PROTO_DIR / "__init__.py"
@@ -111,9 +101,9 @@ class BuildPy(build_py):
             print(f"Creating {init_file.relative_to(SETUP_DIR)}...")
             init_file.touch()
 
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print("Protocol Buffer compilation complete!")
-        print("="*70 + "\n")
+        print("=" * 70 + "\n")
 
         # Run the standard build
         super().run()
